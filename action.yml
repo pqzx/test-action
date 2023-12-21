@@ -1,11 +1,14 @@
 # action.yml
 name: 'Hello World'
-description: 'Greet someone and record the time'
+description: 'Greet someone, record the time and run a script'
 inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
     required: true
     default: 'World'
+  script-path:
+    description: 'Path of the script to run'
+    required: true
 outputs:
   time: # id of output
     description: 'The time we greeted you'
@@ -14,3 +17,4 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.who-to-greet }}
+    - ${{ inputs.script-path }}
